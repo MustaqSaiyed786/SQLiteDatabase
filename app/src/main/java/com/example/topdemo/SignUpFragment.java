@@ -45,7 +45,7 @@ public class SignUpFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         /*getActivity().getSupportFragmentManager().popBackStack(LoginFragment.class.getSimpleName(), 0);*/
-        View root = inflater.inflate(R.layout.fragment_sign_up, container, false);
+        final View root = inflater.inflate(R.layout.fragment_sign_up, container, false);
 
         loginDataBaseAdapter = new LoginDatabaseAdapter(getActivity());
         loginDataBaseAdapter = loginDataBaseAdapter.open();
@@ -64,17 +64,17 @@ public class SignUpFragment extends Fragment {
         radioGroup = root.findViewById(R.id.radioGroup);
         rbMale = (RadioButton) root.findViewById(R.id.rbMale);
         rbFmale = (RadioButton) root.findViewById(R.id.rbFmale);
+
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 switch (checkedId) {
                     case R.id.rbMale:
-                        gender = "Male";
                         Log.e(TAG, "onCheckedChanged: " + gender);
+                        gender = rbMale.getText().toString();
                         break;
                     case R.id.rbFmale:
-                        gender = "Fmale";
-                        Log.e(TAG, "onCheckedChanged: " + gender);
+                        gender = rbFmale.getText().toString();
                         break;
                 }
             }
@@ -90,8 +90,9 @@ public class SignUpFragment extends Fragment {
                 mobiel = getTextFromEditText(edtMoile);
                 email = getTextFromEditText(edtEmail);
                 password = getTextFromEditText(edtPassword);
+                education = getTextFromEditText(edtEducation);
+
                 chekValidation();
-                Log.e(TAG, "onClick: " + firstName);
 
             }
         });
@@ -110,7 +111,7 @@ public class SignUpFragment extends Fragment {
             customToast("Please Enter Email");
         } else if (mobiel.isEmpty()) {
             customToast("Please Enter Mobile");
-        } else if (!rbMale.isChecked() || !rbFmale.isChecked()) {
+        } else if (!rbMale.isChecked() && !rbFmale.isChecked()) {
             customToast("Please Select Gender");
         } else if (education.isEmpty()) {
             customToast("Please Enter Education Details ");
@@ -119,13 +120,13 @@ public class SignUpFragment extends Fragment {
         } else if (password.isEmpty()) {
             customToast("Please Enter Password");
         } else {
-            //saveData();
-            customToast("SAVE");
+            saveData();
         }
 
     }
 
     public void saveData() {
+        Log.e(TAG, "saveData: " + gender);
         receieveOk = loginDataBaseAdapter.insertEntry(firstName, lastName, email, mobiel, gender, education, country, password);
     }
 

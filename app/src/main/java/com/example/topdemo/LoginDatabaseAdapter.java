@@ -13,20 +13,29 @@ public class LoginDatabaseAdapter {
     String ok = "OK";
     static final int DATABASE_VERSION = 1;
     public static String getPassword = "";
-    public static final int NAME_COLUMN = 1;
+    private static String TableName = "User";
+    private static String ColumnID = "_Id";
+    private static String ColumnUsername = "username";
+    private static String ColumnFirstName = "firstname";
+    private static String ColumnLastName = "lastname";
+    private static String ColumnAddress = "address";
+    private static String ColumnCountry = "country";
+    private static String ColumnPassword = "password";
+    private static String ColumnEmail = "email";
+    private static String ColumnMobile = "mobile";
     // TODO: Create public field for each column in your table.
     // SQL Statement to create a new database.
-    static final String DATABASE_CREATE = "create table LOGIN( " +
-            "ID integer primary key autoincrement," +
-            "FIRSTNAME  text," +
-            "LASTNAME  text," +
-            "USERNAME text," +
-            "EMAIL text" +
-            "MOBILE text" +
-            "GENDER text" +
-            "EDUCTION text" +
-            "COUNTRY text" +
-            "PASSWORD text); ";
+    public static String CreateQuery = "CREATE TABLE " + TableName +
+            " ( "
+            + ColumnID + " INTEGER PRIMARY KEY,"
+            + ColumnUsername + " TEXT,"
+            + ColumnFirstName + " TEXT,"
+            + ColumnLastName + " TEXT,"
+            + ColumnAddress + " TEXT,"
+            + ColumnCountry + " TEXT,"
+            + ColumnPassword + " TEXT,"
+            + ColumnEmail + " TEXT,"
+            + ColumnMobile + " TEXT)";
     // Variable to hold the database instance
     public static SQLiteDatabase db;
     // Context of the application using the database.
@@ -56,18 +65,19 @@ public class LoginDatabaseAdapter {
     }
 
     // method to insert a record in Table
-    public String insertEntry(String firstName,
-                              String lastName,
-                              String email,
-                              String mobile,
-                              String gender,
-                              String education,
-                              String country,
-                              String password) {
+    public String insertEntry(
+            String firstName,
+            String lastName,
+            String email,
+            String mobile,
+            String gender,
+            String education,
+            String country,
+            String password
+    ) {
         try {
             ContentValues newValues = new ContentValues();
             // Assign values for each column.
-            newValues.put("PASSWORD", password);
             newValues.put("FIRSTNAME", firstName);
             newValues.put("LASTNAME", lastName);
             newValues.put("EMAIL", email);
@@ -75,6 +85,7 @@ public class LoginDatabaseAdapter {
             newValues.put("GENDER", gender);
             newValues.put("EDUCTION", education);
             newValues.put("COUNTRY", country);
+            newValues.put("PASSWORD", password);
             // Insert the row into your table
             db = dbHelper.getWritableDatabase();
             long result = db.insert("LOGIN", null, newValues);

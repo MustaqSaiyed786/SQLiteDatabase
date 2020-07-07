@@ -15,11 +15,11 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase _db) {
         try {
-            _db.execSQL(LoginDatabaseAdapter.DATABASE_CREATE);
+            _db.execSQL(LoginDatabaseAdapter.CreateQuery);
 
-        }catch(Exception er){
+        } catch (Exception er) {
 
-            Log.e("Error","exceptioin");
+            Log.e("Error", "exceptioin");
         }
 
     }
@@ -27,10 +27,9 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     // Called when there is a database version mismatch meaning that the version
     // of the database on disk needs to be upgraded to the current version.
     @Override
-    public void onUpgrade(SQLiteDatabase _db, int _oldVersion, int _newVersion)
-    {
+    public void onUpgrade(SQLiteDatabase _db, int _oldVersion, int _newVersion) {
         // Log the version upgrade.
-        Log.w("TaskDBAdapter", "Upgrading from version " +_oldVersion + " to " +_newVersion + ", which will destroy all old data");
+        Log.w("TaskDBAdapter", "Upgrading from version " + _oldVersion + " to " + _newVersion + ", which will destroy all old data");
 
 
         // Upgrade the existing database to conform to the new version. Multiple
@@ -38,7 +37,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         // values.
         // The simplest case is to drop the old table and create a new one.
         _db.execSQL("DROP TABLE IF EXISTS " + "LOGIN");
-    
+
         // Create a new one.
         onCreate(_db);
     }
