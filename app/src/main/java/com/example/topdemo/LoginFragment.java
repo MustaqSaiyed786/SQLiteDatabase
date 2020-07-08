@@ -78,5 +78,5 @@ public class LoginFragment extends Fragment {
         return ed.getText().toString().trim();
     }
 
-   
+
 }

@@ -150,6 +150,8 @@ public class SignUpFragment extends Fragment {
             clearEditTetx(edtPassword);
             radioGroup.clearCheck();
             customToast("User Add");
+            FragmentManager fm = getActivity().getSupportFragmentManager();
+            fm.popBackStack(LoginFragment.class.getSimpleName(), 0);
 
 
         }
