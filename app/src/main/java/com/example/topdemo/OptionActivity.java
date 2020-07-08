@@ -12,7 +12,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.Switch;
 
-public class OtionActivity extends AppCompatActivity {
+public class OptionActivity extends AppCompatActivity {
     AppCompatButton btnLogin, btnSignUp;
     Fragment login = new LoginFragment();
     FragmentManager fragmentManager;

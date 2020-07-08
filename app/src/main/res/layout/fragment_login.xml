@@ -4,44 +4,58 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
+    android:background="#FFF"
     android:orientation="vertical"
     tools:context=".LoginFragment">
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="15dp"
-        android:src="@drawable/ic_menu_camera"/>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter Name">
+        android:layout_gravity="center"
+        android:scaleType="fitXY"
+        android:src="@drawable/top" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/edlName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginTop="12dp"
+        android:hint="Enter email">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edLUserName"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="roozan.mansuri@attuneww.com"
+            android:textColor="#000" />
     </com.google.android.material.textfield.TextInputLayout>
 
 
-
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/edtlPassword"
         android:layout_width="match_parent"
-        android:layout_margin="10dp"
         android:layout_height="wrap_content"
-        android:hint="Enter Name">
+        android:layout_margin="10dp"
+        android:hint="Password">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edLPassword"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="123456"
+            android:textColor="#000" />
     </com.google.android.material.textfield.TextInputLayout>
 
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnSave"
-        android:text="Save"
+        android:id="@+id/btndoLogin"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@color/colorBlue1"
+        android:text="Save"
+        android:textColor="#FFF"
+        android:textSize="15sp"
+        android:textStyle="bold" />
 </LinearLayout>

@@ -3,8 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="#FFF"
     android:layout_height="match_parent"
-    tools:context=".OtionActivity">
+    tools:context=".OptionActivity">
 
     <fragment
         android:id="@+id/nav_option_fragment"
@@ -25,6 +26,11 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnSignUpd"
         app:layout_constraintHorizontal_bias="0.5"
+        android:layout_margin="10dp"
+        android:background="@color/colorBlue1"
+        android:textColor="#FFF"
+        android:textSize="15sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton
@@ -32,6 +38,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sign Up"
+        android:layout_margin="10dp"
+        android:background="@color/colorBlue1"
+        android:textColor="#FFF"
+        android:textSize="15sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
