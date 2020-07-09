@@ -3,7 +3,6 @@ package com.example.topdemo;
 import android.os.Bundle;
 
 import androidx.appcompat.widget.AppCompatButton;
-import androidx.appcompat.widget.AppCompatEditText;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
@@ -15,6 +14,11 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
+
+import com.example.topdemo.java.DatabaseHelper;
+import com.example.topdemo.java.User;
+
+import java.util.Objects;
 
 
 public class SignUpFragment extends Fragment {
@@ -150,10 +154,8 @@ public class SignUpFragment extends Fragment {
             clearEditTetx(edtPassword);
             radioGroup.clearCheck();
             customToast("User Add");
-            FragmentManager fm = getActivity().getSupportFragmentManager();
+            FragmentManager fm = Objects.requireNonNull(getActivity()).getSupportFragmentManager();
             fm.popBackStack(LoginFragment.class.getSimpleName(), 0);
-
-
         }
 
     }

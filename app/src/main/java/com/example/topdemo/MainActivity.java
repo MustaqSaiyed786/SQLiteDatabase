@@ -3,14 +3,14 @@ package com.example.topdemo;
 import android.annotation.SuppressLint;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MotionEvent;
-import android.view.View;
 import android.view.Menu;
 import android.widget.Toast;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
+import com.example.topdemo.java.DatabaseHelper;
+import com.example.topdemo.java.User;
+import com.example.topdemo.java.UsersRecyclerAdapter;
+import com.example.topdemo.java.onDrawerClick;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;

@@ -19,7 +19,7 @@ public class Splashctivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent i = new Intent(getApplicationContext(), OptionActivity.class);
+                Intent i = new Intent(getApplicationContext(), RedirectActivity.class);
                 startActivity(i);
                 finish();
             }

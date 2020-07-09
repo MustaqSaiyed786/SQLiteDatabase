@@ -27,7 +27,6 @@
             android:id="@+id/edLUserName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="roozan.mansuri@attuneww.com"
             android:textColor="#000" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -43,7 +42,6 @@
             android:id="@+id/edLPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="123456"
             android:textColor="#000" />
     </com.google.android.material.textfield.TextInputLayout>
 

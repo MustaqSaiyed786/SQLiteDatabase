@@ -1,4 +1,4 @@
-package com.example.topdemo;
+package com.example.topdemo.java;
 
 
 import android.util.Log;
@@ -10,15 +10,17 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.topdemo.R;
+
 import java.util.List;
 
 
 public class UsersRecyclerAdapter extends RecyclerView.Adapter<UsersRecyclerAdapter.UserViewHolder> {
 
     private List<User> listUsers;
-    private onDrawerClick onDrawerClick;
+    private com.example.topdemo.java.onDrawerClick onDrawerClick;
 
-    public UsersRecyclerAdapter(List<User> listUsers, com.example.topdemo.onDrawerClick onDrawerClick) {
+    public UsersRecyclerAdapter(List<User> listUsers, com.example.topdemo.java.onDrawerClick onDrawerClick) {
         this.listUsers = listUsers;
         this.onDrawerClick = onDrawerClick;
     }
