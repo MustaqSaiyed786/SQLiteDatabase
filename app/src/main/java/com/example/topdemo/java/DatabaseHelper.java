@@ -1,12 +1,9 @@
 package com.example.topdemo.java;
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-
-import com.example.topdemo.java.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -144,11 +141,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cursor.close();
         db.close();
 
-        if (cursorCount > 0) {
-            return true;
-        }
-
-        return false;
+        return cursorCount > 0;
     }
 
     public boolean checkUser(String email, String password) {
@@ -170,10 +163,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         cursor.close();
         db.close();
-        if (cursorCount > 0) {
-            return true;
-        }
-
-        return false;
+        return cursorCount > 0;
     }
 }

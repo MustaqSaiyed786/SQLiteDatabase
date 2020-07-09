@@ -20,12 +20,9 @@ public class LoginFragment extends Fragment {
 
     public String username;
     public String password;
-    String storedPassword;
-
     EditText edName;
     EditText edPassword;
     AppCompatButton btnLogin;
-    Cursor cursor;
     private DatabaseHelper databaseHelper;
 
     @Override

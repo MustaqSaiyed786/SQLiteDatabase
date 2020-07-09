@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".java.LoadDataActivity">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvFullname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15sp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="15sp"
+        android:padding="5dp"
+        android:textColor="#000"
+        android:textSize="15sp"
+        tools:text="Fullname" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvEducation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="15sp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="15sp"
+        android:padding="5dp"
+        android:textColor="#000"
+        android:textSize="15sp"
+        tools:text="Fullname" />
+
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvFullname"
+        android:layout_marginStart="15sp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="15sp"
+        android:padding="5dp"
+        android:textColor="#000"
+        android:textSize="15sp"
+        tools:text="Email" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvCountry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvFullname"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="15sp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="15sp"
+        android:padding="5dp"
+        android:textColor="#000"
+        android:textSize="15sp"
+        tools:text="Email" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvMobile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvEmail"
+        android:layout_marginStart="15sp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="15sp"
+        android:padding="5dp"
+        android:textColor="#000"
+        android:textSize="15sp"
+        tools:text="Email" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvGender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvEmail"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="15sp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="15sp"
+        android:padding="5dp"
+        android:textColor="#000"
+        android:textSize="15sp"
+        tools:text="Email" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycleUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvGender"
+        tools:listitem="@layout/itemview" />
+
+</RelativeLayout>

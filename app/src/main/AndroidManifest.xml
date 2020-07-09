@@ -9,13 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".java.SignUpActivity"></activity>
+        <activity android:name=".java.LoadDataActivity"></activity>
+        <activity android:name=".java.SignUpActivity" />
         <activity android:name=".RedirectActivity" />
-        <activity android:name=".java.LoginActivity" />
+        <activity android:name=".SplashActivity" />
         <activity android:name=".OptionActivity" />
         <activity android:name=".MainActivity" />
         <activity
-            android:name=".Splashctivity"
+            android:name=".java.LoginActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>

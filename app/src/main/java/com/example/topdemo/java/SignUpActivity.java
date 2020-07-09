@@ -1,28 +1,28 @@
-package com.example.topdemo;
+package com.example.topdemo.java;
 
+import android.app.Activity;
 import android.os.Bundle;
-
-import androidx.appcompat.widget.AppCompatButton;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.topdemo.java.DatabaseHelper;
-import com.example.topdemo.java.User;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatButton;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
-import java.util.Objects;
+import com.example.topdemo.R;
+
+public class SignUpActivity extends Activity {
 
 
-public class SignUpFragment extends Fragment {
-
+    ConstraintLayout constraintLayoutToolbar;
+    TextView tvTitle;
+    ImageView imgBack;
     private String TAG = "SignUp";
     private AppCompatButton buttonSave;
     private EditText et_first_name;
@@ -47,28 +47,39 @@ public class SignUpFragment extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        final View root = inflater.inflate(R.layout.fragment_sign_up, container, false);
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_sign_up);
+
+        constraintLayoutToolbar = findViewById(R.id.signUpToolbar);
+        tvTitle = constraintLayoutToolbar.findViewById(R.id.tvTitle);
+        imgBack = constraintLayoutToolbar.findViewById(R.id.imgBack);
+        tvTitle.setText("Sign Up");
+        imgBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
 
-        buttonSave = root.findViewById(R.id.btnSaveRecod);
+        buttonSave = findViewById(R.id.btnSaveRecod);
 
-        databaseHelper = new DatabaseHelper(requireContext());
+        databaseHelper = new DatabaseHelper(getApplicationContext());
         initObjects();
 
-        et_first_name = root.findViewById(R.id.edName);
-        edtLastName = root.findViewById(R.id.edLastname);
-        edtCountry = root.findViewById(R.id.edCountry);
-        edtMoile = root.findViewById(R.id.edMobile);
-        edtEducation = root.findViewById(R.id.edEducation);
+        et_first_name = findViewById(R.id.edName);
+        edtLastName = findViewById(R.id.edLastname);
+        edtCountry = findViewById(R.id.edCountry);
+        edtMoile = findViewById(R.id.edMobile);
+        edtEducation = findViewById(R.id.edEducation);
         education = edtEducation.getText().toString();
-        edtEmail = root.findViewById(R.id.edEmail);
-        edtPassword = root.findViewById(R.id.edPassword);
+        edtEmail = findViewById(R.id.edEmail);
+        edtPassword = findViewById(R.id.edPassword);
 
-        radioGroup = root.findViewById(R.id.radioGroup);
-        rbMale = (RadioButton) root.findViewById(R.id.rbMale);
-        rbFmale = (RadioButton) root.findViewById(R.id.rbFmale);
+        radioGroup = findViewById(R.id.radioGroup);
+        rbMale = findViewById(R.id.rbMale);
+        rbFmale = findViewById(R.id.rbFmale);
 
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -102,8 +113,6 @@ public class SignUpFragment extends Fragment {
         });
 
 
-        return root;
-
     }
 
     private void chekValidation() {
@@ -131,6 +140,8 @@ public class SignUpFragment extends Fragment {
 
     }
 
+
+
     public void saveData() {
 
         user.setFirst_name(firstName.trim());
@@ -145,29 +156,28 @@ public class SignUpFragment extends Fragment {
             customToast("User Exist In Database Please Login With Mail Id ");
         } else {
             databaseHelper.addUser(user);
-            clearEditTetx(et_first_name);
-            clearEditTetx(edtLastName);
-            clearEditTetx(edtMoile);
-            clearEditTetx(edtEmail);
-            clearEditTetx(edtEducation);
-            clearEditTetx(edtCountry);
-            clearEditTetx(edtPassword);
+            clearEditText(et_first_name);
+            clearEditText(edtLastName);
+            clearEditText(edtMoile);
+            clearEditText(edtEmail);
+            clearEditText(edtEducation);
+            clearEditText(edtCountry);
+            clearEditText(edtPassword);
             radioGroup.clearCheck();
             customToast("User Add");
-            FragmentManager fm = requireActivity().getSupportFragmentManager();
-            fm.popBackStack(LoginFragment.class.getSimpleName(), 0);
+            finish();
         }
 
     }
 
     public void customToast(String message) {
-        Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
 
     }
 
 
     private void initObjects() {
-        databaseHelper = new DatabaseHelper(getContext());
+        databaseHelper = new DatabaseHelper(getApplicationContext());
         user = new User();
     }
 
@@ -175,7 +185,7 @@ public class SignUpFragment extends Fragment {
         return ed.getText().toString().trim();
     }
 
-    private void clearEditTetx(EditText editText) {
+    private void clearEditText(EditText editText) {
         editText.setText("");
     }
 }

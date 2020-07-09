@@ -7,8 +7,10 @@ import android.view.MotionEvent;
 import android.view.Menu;
 import android.widget.Toast;
 
+import com.example.topdemo.java.ClickDelegate;
 import com.example.topdemo.java.DatabaseHelper;
 import com.example.topdemo.java.User;
+
 import com.example.topdemo.java.UsersRecyclerAdapter;
 import com.example.topdemo.java.onDrawerClick;
 import com.google.android.material.navigation.NavigationView;
@@ -29,7 +31,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements onDrawerClick {
+public class MainActivity extends AppCompatActivity implements onDrawerClick, ClickDelegate {
 
     private AppBarConfiguration mAppBarConfiguration;
     public RecyclerView rvUserName;
@@ -60,7 +62,7 @@ public class MainActivity extends AppCompatActivity implements onDrawerClick {
 
         rvUserName = navigationView.findViewById(R.id.rvUserName);
         listUsers = new ArrayList<>();
-        usersRecyclerAdapter = new UsersRecyclerAdapter(listUsers, this);
+        usersRecyclerAdapter = new com.example.topdemo.java.UsersRecyclerAdapter(listUsers, this);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         rvUserName.setLayoutManager(mLayoutManager);
         rvUserName.setItemAnimator(new DefaultItemAnimator());
@@ -122,9 +124,18 @@ public class MainActivity extends AppCompatActivity implements onDrawerClick {
     }
 
     @Override
-    public void onClickUser(String email) {
+    public void onClickUser(User email) {
         Toast.makeText(this, "" + email, Toast.LENGTH_LONG).show();
-
         drawer.close();
+    }
+
+    @Override
+    public boolean onItemClick(int position) {
+        return false;
+    }
+
+    @Override
+    public boolean onItemLongClick(int position) {
+        return false;
     }
 }

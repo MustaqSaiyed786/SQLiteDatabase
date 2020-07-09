@@ -9,7 +9,9 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
-public class Splashctivity extends AppCompatActivity {
+import com.example.topdemo.java.LoginActivity;
+
+public class SplashActivity extends AppCompatActivity {
 
 
     @Override
@@ -19,7 +21,7 @@ public class Splashctivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent i = new Intent(getApplicationContext(), RedirectActivity.class);
+                Intent i = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(i);
                 finish();
             }
