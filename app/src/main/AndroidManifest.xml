@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".java.LoadDataActivity"></activity>
+        <activity android:name=".java.LoadDataActivity"/>
         <activity android:name=".java.SignUpActivity" />
         <activity android:name=".RedirectActivity" />
         <activity android:name=".SplashActivity" />
